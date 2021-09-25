@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../styles/basicStyle.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <script src="bingo.js"></script>
+
+    <head>
+            <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <title>Nuzlocke Bingo! (Dev)</title>
+    </head>
+    <body>
+        <div class="jumbotron">
+            <div class="container">
+                <h1>Nuzlocke Bingo Board (Dev)</h1>
+                <!--
+                <br>
+                <p style="font-size:larger">
+                    A bingo card for
+                </p>
+                -->
+            </div>
+        </div>
+        <main role="main" class="container-fluid">
+            <div class="row">
+                <aside class="col-3 blog-sidebar">
+                    <div class="card bg-light mw-24">
+                        <h5 class="card-header">Controls</h5>
+                        <div class="card-body">
+                            <p>
+                                <textarea placeholder="Code..." id="code"></textarea>
+                                <button type="button" class="btn btn-secondary" id="enterCodeBtn" disabled>Enter Code</button>
+                            </p>
+                            <p>
+                                <button type="button" class="btn btn-secondary" id="updateBtn" disabled>Update Board</button>
+                            </p>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="card bg-light mw-24">
+                        <h5 class="card-header">Current Code</h5>
+                        <div class="card-body" id="codeDisplay">
+                        </div>
+                    </div>
+                </aside>
+                <div class="col-6 blog-main" style="font-size: large;">
+                    <table class="table table-bordered">
+                        <tr>
+                            <td class="square" id="Square1"></td>
+                            <td class="square" id="Square2"></td>
+                            <td class="square" id="Square3"></td>
+                            <td class="square" id="Square4"></td>
+                            <td class="square" id="Square5"></td>
+                        </tr>
+                        <tr>
+                            <td class="square" id="Square6"></td>
+                            <td class="square" id="Square7"></td>
+                            <td class="square" id="Square8"></td>
+                            <td class="square" id="Square9"></td>
+                            <td class="square" id="Square10"></td>
+                        </tr>
+                        <tr>
+                            <td class="square" id="Square11"></td>
+                            <td class="square" id="Square12"></td>
+                            <td class="square text-light bg-success" id="Square30">Free Space!</td>
+                            <td class="square" id="Square13"></td>
+                            <td class="square" id="Square14"></td>
+                        </tr>
+                        <tr>
+                            <td class="square" id="Square15"></td>
+                            <td class="square" id="Square16"></td>
+                            <td class="square" id="Square17"></td>
+                            <td class="square" id="Square18"></td>
+                            <td class="square" id="Square19"></td>
+                        </tr>
+                        <tr>
+                            <td class="square" id="Square20"></td>
+                            <td class="square" id="Square21"></td>
+                            <td class="square" id="Square22"></td>
+                            <td class="square" id="Square23"></td>
+                            <td class="square" id="Square24"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>
