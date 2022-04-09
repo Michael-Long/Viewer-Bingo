@@ -36,19 +36,6 @@ function doBackend() {
             $statement->execute();
             http_response_code(200);
             echo json_encode($statement->fetchAll(PDO::FETCH_ASSOC));
-        } else if (isset($_GET["count"])) {
-            $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
-            $opt = [
-                PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-                PDO::ATTR_EMULATE_PREPARES   => false,
-            ];
-            $pdo = new PDO($dsn, $user, $pass, $opt);
-
-            $statement = $pdo->prepare('SELECT COUNT(*) FROM entries');
-            $statement->execute();
-            http_response_code(200);
-            echo json_encode($statement->fetchColumn());
         } else {
             http_response_code(400);
         }

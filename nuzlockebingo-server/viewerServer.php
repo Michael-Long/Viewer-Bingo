@@ -11,7 +11,6 @@ function getBingoState() {
     $charset = $ini_array['charset'];
 
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-
         $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
         $opt = [
             PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
@@ -20,11 +19,19 @@ function getBingoState() {
         ];
         $pdo = new PDO($dsn, $user, $pass, $opt);
 
-        $statement = $pdo->prepare('SELECT * FROM entries');
-        $statement->execute();
-        http_response_code(200);
-        echo json_encode($statement->fetchAll(PDO::FETCH_ASSOC));
+        if (isset($_GET["count"])) {
+            $statement = $pdo->prepare('SELECT COUNT(*) FROM entries');
+            $statement->execute();
+            http_response_code(200);
+            echo json_encode($statement->fetchColumn());
+        } else {
+            $statement = $pdo->prepare('SELECT * FROM entries');
+            $statement->execute();
+            http_response_code(200);
+            echo json_encode($statement->fetchAll(PDO::FETCH_ASSOC));
+        }
+    } else {
+        http_response_code(405);
     }
-    http_response_code(405);
 }
 ?>
